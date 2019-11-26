@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html lang="de">
+
+	<head>
+		<meta charset="UTF-8">											<!-- Zeichensatz des Inhalts -->
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8"> <!-- Zeichensatz der Datei -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">	<!-- Internet Explorer Version festlegen -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Zoom bei mobilen Geräten ausschalten -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link href="css/cocktail.css" rel="stylesheet">
+	
+<script type="text/javascript" src="jquery-3.4.1.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+
+  
+ 
+		<title>CocktailInfo</title>		
+			
+		<script type="text/javascript" src="cocktail.js"></script>
+		
+	</head>
+	
+	<!--<body onload="loadCocktailType('c','Cocktail');"> -->
+	<body onload="pageInit();">	
+	<header>
+	<div class="header wrapper row" id="myHeader">
+
+  	<div class="brand col-sm-6" >
+    	<!-- <h2>We Are Travel Girls</h2> -->
+		<img src="img/logo.png" alt ="logo" >
+ 	</div>
+  	<div  class="navclass col-sm-6">
+    	<input type="checkbox" id="navchecker">
+    		<nav id="topnav">
+        		<p class="nodesktop"><label for="navchecker">+</label></p>
+				<ul class="clearfix">
+					<li><a href="index.html">Home</a></li>
+                    <li><a href="#">Über uns</a></li>
+					<li><a href="#">Kontakt</a></li>
+                    
+				</ul>
+		    </nav>
+		</div>
+	</div>
+    </header>
+	<main>
+				<div class="wrapper">
+				<!--<h2>Herzlich Willkommen</h2>
+<p>Search your favorite Cocktails and find more</P> -->
+				
+				<div class="row">
+				 <!--<div class="col-sm-12 "> 
+				<span>Search with the Name</span><br> 
+				</div> -->
+				<div class="col-sm-12 topdiv">
+				<input id="searchText" type="text" class="textbox" placeholder="Search for a Cocktail" /><button class="button" onclick="loadCocktails();">Cocktail suchen</button>
+				</div> 
+				 <div class="col-sm-12"> 
+				<span>Search with the Intgredient</span><br>
+					</div>  
+					 <div class="col-sm-12"> 
+				 <select id="intgridientId" class="select-css" onchange="loadCocktailsWithIngredient();">
+  <option>Select Intgredient</option>
+  <option value="Vodka">Vodka</option>
+  <option value="Gin">Gin</option>
+  <option value="Rum">Rum</option>
+  <option value="Tequila">Tequila</option>
+  <option value="Whiskey">Whiskey</option>
+</select> 
+	</div>  		
+				
+		
+
+
+<div class="col-sm-12"> 
+<span>Filter by Category:</span>
+</div>
+<div class="col-sm-12"> 
+ <div class="radiodiv">
+    <input type="radio" id="randomCocktailtype"
+           name="cocktailType" value="Random Cocktails" onclick="loadCocktailType('c','Cocktail');" checked>
+    <label for="randomCocktailtype">Random Cocktails</label>
+    <input type="radio" id="ordinaryCocktailtype"
+           name="cocktailType" value="Ordinary Drinks" onclick="loadCocktailType('c','Ordinary_Drink');">
+    <label for="ordinaryCocktailtype">Ordinary Drinks</label>
+    <input type="radio" id="alcoholicCocktailtype"
+           name="cocktailType" value="Alcoholic Cocktails" onclick="loadCocktailType('a','Alcoholic');" >
+    <label for="alcoholicCocktailtype">Alcoholic Cocktails</label>
+	<input type="radio" id="nonalcoholicCocktailtype"
+           name="cocktailType" value="Nonalcoholic Cocktails" onclick="loadCocktailType('a','Non_Alcoholic');">
+    <label for="nonalcoholicCocktailtype">Nonalcoholic Cocktails</label>
+  </div>
+</div>  
+
+<!--<div class="col-sm-12"> 
+ <input type="radio" class="radio" id="randomCocktailtype" name="cocktailType" value="Random Cocktails" onclick="loadCocktailType('c','Cocktail');" checked> Random Cocktails
+  <input type="radio" class="radio" id="ordinaryCocktailtype" name="cocktailType" value="Ordinary Drinks" onclick="loadCocktailType('c','Ordinary_Drink');" > Ordinary Drinks
+  <input type="radio" class="radio"  id="alcoholicCocktailtype" name="cocktailType" value="Alcoholic Cocktails" onclick="loadCocktailType('a','Alcoholic');" > Alcoholic Cocktails
+  <input type="radio" class="radio"  id="nonalcoholicCocktailtype" name="cocktailType" value="Nonalcoholic Cocktails" onclick="loadCocktailType('a','Non_Alcoholic');" > Nonalcoholic Cocktails 
+  
+</div> --> 
+
+
+<div class="col-sm-12"> 
+<span>Browse with Alphabet:</span>
+</div>
+
+<div class="col-sm-12"> 
+<button onclick="loadCocktailsFirstLetter('a');">A</button>
+<button onclick="loadCocktailsFirstLetter('b');">B</button>
+<button onclick="loadCocktailsFirstLetter('c');">C</button>
+<button onclick="loadCocktailsFirstLetter('d');">D</button>
+<button onclick="loadCocktailsFirstLetter('e');">E</button>
+<button onclick="loadCocktailsFirstLetter('f');">F</button>
+<button onclick="loadCocktailsFirstLetter('g');">G</button>
+<button onclick="loadCocktailsFirstLetter('h');">H</button>
+<button onclick="loadCocktailsFirstLetter('i');">I</button>
+<button onclick="loadCocktailsFirstLetter('j');">J</button>
+<button onclick="loadCocktailsFirstLetter('k');">K</button>
+<button onclick="loadCocktailsFirstLetter('l');">L</button>
+<button onclick="loadCocktailsFirstLetter('m');">M</button>
+<button onclick="loadCocktailsFirstLetter('n');">N</button>
+<button onclick="loadCocktailsFirstLetter('o');">O</button>
+<button onclick="loadCocktailsFirstLetter('p');">P</button>
+<button onclick="loadCocktailsFirstLetter('q');">Q</button>
+<button onclick="loadCocktailsFirstLetter('r');">R</button>
+<button onclick="loadCocktailsFirstLetter('s');">S</button>
+<button onclick="loadCocktailsFirstLetter('t');">T</button>
+<button onclick="loadCocktailsFirstLetter('u');">U</button>
+<button onclick="loadCocktailsFirstLetter('v');">V</button>
+<button onclick="loadCocktailsFirstLetter('w');">W</button>
+<button onclick="loadCocktailsFirstLetter('x');">X</button>
+<button onclick="loadCocktailsFirstLetter('y');">Y</button>
+<button onclick="loadCocktailsFirstLetter('z');">Z</button>
+</div>  
+
+
+
+
+<div id="ausgabe"></div>	
+	<footer>
+	<div class="clearfix wrapper ">
+			<div>
+				<h4>Kontakt</h4>
+				<p>Tel: 215-200-8311</p>
+				<p>Email: cocktaildb@gmail.com</p>
+				<p>Stuttgarter Str.18</p>
+			</div>
+			<div class="footer">
+				<h4>Rechtliches</h4>
+				<p><a href="datenschutz.html">Datenschutz</a></p>
+				<p><a href="impressum.html">Impressum</a></p>
+				
+			</div>
+			<div class="footer">
+				<h4>Lerne uns kennen</h4>
+				<p><a href="aboutus.html">Über uns</a></p>
+				<p><a href="#">Blogs</a></p>
+				<p><a href="#">Events</a></p>
+			</div>
+		</div>
+	</footer>	
+	</body>
+
+</html>
